@@ -1,0 +1,6 @@
+force.json
+sfdx-project.json
+.vscode
+.sfdx
+.forceCode
+.vim*
