@@ -1,6 +1,6 @@
 # ChatterPostService
 
-A new way to build with apex yours chatter posts with chaining mode. With Salesforce ConnectApi Or Chatter in Apex.
+A new way to build with apex yours chatter posts with chaining mode, and in my opnion is very clean and readable. With Salesforce ConnectApi Or Chatter in Apex.
 
 ## Why ChatterPostService
 

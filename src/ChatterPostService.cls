@@ -14,6 +14,7 @@ global inherited sharing class ChatterPostService {
     global ChatterPostService(String subjectId, ConnectApi.FeedElementType elementType) {
         if (TRHOW_EXCEPTIONS) checkId(subjectId, 'subjectId');
         this.feedItemInput = new ConnectApi.FeedItemInput();
+        this.feedItemInput.feedElementType = elementType;
         this.feedItemInput.body = new ConnectApi.MessageBodyInput();
         this.messageSegments = new List<ConnectApi.MessageSegmentInput>();
     }
@@ -79,8 +80,10 @@ global inherited sharing class ChatterPostService {
      * @return  this instance of the object for chaining purpose 
      * @see https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_connectapi_input_markup_begin_segment.htm
      */
-    global ChatterPostService beginMarkupBlock() {
-        this.messageSegments.add(new ConnectApi.MarkupBeginSegmentInput());
+    global ChatterPostService beginMarkupBlock(ConnectApi.MarkupType markupType) {
+        ConnectApi.MarkupBeginSegmentInput markupBegin = new ConnectApi.MarkupBeginSegmentInput();
+        markupBegin.markupType = markupType;
+        this.messageSegments.add(markupBegin);
         return this;
     }
 
