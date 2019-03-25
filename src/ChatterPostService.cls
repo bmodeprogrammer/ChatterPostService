@@ -82,6 +82,30 @@ global inherited sharing class ChatterPostService {
         return this;
     }
 
+     /**
+     * Begins bold <b>
+     * @return  this instance of the object for chaining purpose 
+     * @see https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_connectapi_input_markup_begin_segment.htm
+     */
+    global ChatterPostService beginBold() {
+        ConnectApi.MarkupBeginSegmentInput markupBegin = new ConnectApi.MarkupBeginSegmentInput();
+        markupBegin.markupType = ConnectApi.MarkupType.Bold;
+        this.messageSegments.add(markupBegin);
+        return this;
+    }
+
+    /**
+     * End Bold <b/>
+     * @return  this instance of the object for chaining purpose 
+     * @see https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_connectapi_input_markup_begin_segment.htm
+     */
+    global ChatterPostService beginBold() {
+        ConnectApi.MarkupEndSegmentInput markupBegin = new ConnectApi.MarkupEndSegmentInput();
+        markupBegin.markupType = ConnectApi.MarkupType.Bold;
+        this.messageSegments.add(markupBegin);
+        return this;
+    }
+
     /**
      * Ends an markup block
      * @return  this instance of the object for chaining purpose 
