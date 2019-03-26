@@ -70,49 +70,230 @@ global inherited sharing class ChatterPostService {
         return this;
     }
 
-    /**
-     * Begins an markup block
-     * @return  this instance of the object for chaining purpose 
-     * @see https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_connectapi_input_markup_begin_segment.htm
-     */
-    global ChatterPostService beginMarkupBlock(ConnectApi.MarkupType markupType) {
-        ConnectApi.MarkupBeginSegmentInput markupBegin = new ConnectApi.MarkupBeginSegmentInput();
-        markupBegin.markupType = markupType;
-        this.messageSegments.add(markupBegin);
-        return this;
-    }
-
      /**
      * Begins bold <b>
      * @return  this instance of the object for chaining purpose 
      * @see https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_connectapi_input_markup_begin_segment.htm
      */
     global ChatterPostService beginBold() {
-        ConnectApi.MarkupBeginSegmentInput markupBegin = new ConnectApi.MarkupBeginSegmentInput();
-        markupBegin.markupType = ConnectApi.MarkupType.Bold;
-        this.messageSegments.add(markupBegin);
-        return this;
+        return this.beginMarkup(ConnectApi.MarkupType.Bold);
     }
 
     /**
-     * End Bold <b/>
+     * End Bold </b>
      * @return  this instance of the object for chaining purpose 
      * @see https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_connectapi_input_markup_begin_segment.htm
      */
-    global ChatterPostService beginBold() {
-        ConnectApi.MarkupEndSegmentInput markupBegin = new ConnectApi.MarkupEndSegmentInput();
-        markupBegin.markupType = ConnectApi.MarkupType.Bold;
+    global ChatterPostService endBold() {
+        return this.endMarkup(ConnectApi.MarkupType.Bold);
+    }
+
+     /**
+     * Begins Code <code>
+     * @return  this instance of the object for chaining purpose 
+     * @see https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_connectapi_input_markup_begin_segment.htm
+     */
+    global ChatterPostService beginCode() {
+        return this.beginMarkup(ConnectApi.MarkupType.Code);
+    }
+
+    /**
+     * End Code </code>
+     * @return  this instance of the object for chaining purpose 
+     * @see https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_connectapi_input_markup_begin_segment.htm
+     */
+    global ChatterPostService endCode() {
+        return this.endMarkup(ConnectApi.MarkupType.Code);
+    }
+
+    /**
+     * Begins Italic <i>
+     * @return  this instance of the object for chaining purpose 
+     * @see https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_connectapi_input_markup_begin_segment.htm
+     */
+    global ChatterPostService beginItalic() {
+        return this.beginMarkup(ConnectApi.MarkupType.Italic);
+    }
+
+    /**
+     * End Italic </i>
+     * @return  this instance of the object for chaining purpose 
+     * @see https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_connectapi_input_markup_begin_segment.htm
+     */
+    global ChatterPostService endItalic() {
+        return this.endMarkup(ConnectApi.MarkupType.Italic);
+    }
+
+    /**
+     * Begins ListItem <li>
+     * @return  this instance of the object for chaining purpose 
+     * @see https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_connectapi_input_markup_begin_segment.htm
+     */
+    global ChatterPostService beginListItem() {
+        return this.beginMarkup(ConnectApi.MarkupType.ListItem);
+    }
+
+    /**
+     * End ListItem </li>
+     * @return  this instance of the object for chaining purpose 
+     * @see https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_connectapi_input_markup_begin_segment.htm
+     */
+    global ChatterPostService endListItem() {
+        return this.endMarkup(ConnectApi.MarkupType.ListItem);
+    }
+
+    /**
+     * Begins OrderedList <ol>
+     * @return  this instance of the object for chaining purpose 
+     * @see https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_connectapi_input_markup_begin_segment.htm
+     */
+    global ChatterPostService beginOrderedList() {
+        return this.beginMarkup(ConnectApi.MarkupType.OrderedList);
+    }
+
+    /**
+     * End OrderedList </ol>
+     * @return  this instance of the object for chaining purpose 
+     * @see https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_connectapi_input_markup_begin_segment.htm
+     */
+    global ChatterPostService endOrderedList() {
+        return this.endMarkup(ConnectApi.MarkupType.OrderedList);
+    }
+
+    /**
+     * Begins Paragraph <p>
+     * @return  this instance of the object for chaining purpose 
+     * @see https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_connectapi_input_markup_begin_segment.htm
+     */
+    global ChatterPostService beginParagraph() {
+        return this.beginMarkup(ConnectApi.MarkupType.Paragraph);
+    }
+
+    /**
+     * End Paragraph </p>
+     * @return  this instance of the object for chaining purpose 
+     * @see https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_connectapi_input_markup_begin_segment.htm
+     */
+    global ChatterPostService endParagraph() {
+        return this.endMarkup(ConnectApi.MarkupType.Paragraph);
+    }
+
+    /**
+     * Begins Strike <strike>
+     * @return  this instance of the object for chaining purpose 
+     * @see https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_connectapi_input_markup_begin_segment.htm
+     */
+    global ChatterPostService beginStrike() {
+        return this.beginMarkup(ConnectApi.MarkupType.Strikethrough);
+    }
+
+    /**
+     * End Strike </strike>
+     * @return  this instance of the object for chaining purpose 
+     * @see https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_connectapi_input_markup_begin_segment.htm
+     */
+    global ChatterPostService endStrike() {
+        return this.endMarkup(ConnectApi.MarkupType.Strikethrough);
+    }
+
+    /**
+     * Begins Underline <u>
+     * @return  this instance of the object for chaining purpose 
+     * @see https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_connectapi_input_markup_begin_segment.htm
+     */
+    global ChatterPostService beginUnderline() {
+        return this.beginMarkup(ConnectApi.MarkupType.Underline);
+    }
+
+    /**
+     * End Underline </u>
+     * @return  this instance of the object for chaining purpose 
+     * @see https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_connectapi_input_markup_begin_segment.htm
+     */
+    global ChatterPostService endUnderline() {
+        return this.endMarkup(ConnectApi.MarkupType.Underline);
+    }
+
+    /**
+     * Begins UnorderedList <ul>
+     * @return  this instance of the object for chaining purpose 
+     * @see https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_connectapi_input_markup_begin_segment.htm
+     */
+    global ChatterPostService beginUnorderedList() {
+        return this.beginMarkup(ConnectApi.MarkupType.UnorderedList);
+    }
+
+    /**
+     * End UnorderedList </ul>
+     * @return  this instance of the object for chaining purpose 
+     * @see https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_connectapi_input_markup_begin_segment.htm
+     */
+    global ChatterPostService endUnorderedList() {
+        return this.endMarkup(ConnectApi.MarkupType.UnorderedList);
+    }
+
+    /**
+     * Begins Hyperlink <a href="">
+     * @param url receives an string to be an url, needs to begin with http/https
+     * @return  this instance of the object for chaining purpose 
+     * @see https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_connectapi_input_markup_begin_segment.htm
+     */
+    global ChatterPostService beginHyperlink(String url) {
+        ConnectApi.MarkupBeginSegmentInput markupBegin = new ConnectApi.MarkupBeginSegmentInput();
+        markupBegin.url = url;
+        markupBegin.markupType = ConnectApi.MarkupType.Hyperlink;
         this.messageSegments.add(markupBegin);
         return this;
     }
 
     /**
-     * Ends an markup block
+     * Begins Hyperlink <a href="" title="">
+     * @param url receives an string to be an url, needs to begin with http/https
+     * @param altText receives an string that appears on mouse hover of the link
      * @return  this instance of the object for chaining purpose 
-     * @see https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_connectapi_input_markup_end_segment.htm
+     * @see https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_connectapi_input_markup_begin_segment.htm
      */
-    global ChatterPostService endMarkupBlock() {
-        this.messageSegments.add(new ConnectApi.MarkupEndSegmentInput());
+    global ChatterPostService beginHyperlink(String url, String altText) {
+        ConnectApi.MarkupBeginSegmentInput markupBegin = new ConnectApi.MarkupBeginSegmentInput();
+        markupBegin.url = url;
+        markupBegin.altText = altText;
+        markupBegin.markupType = ConnectApi.MarkupType.Hyperlink;
+        this.messageSegments.add(markupBegin);
+        return this;
+    }
+
+    /**
+     * End Hyperlink <a/>
+     * @return  this instance of the object for chaining purpose 
+     * @see https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_connectapi_input_markup_begin_segment.htm
+     */
+    global ChatterPostService endHyperlink() {
+        return this.endMarkup(ConnectApi.MarkupType.Hyperlink);
+    }
+
+    /**
+     * End Markup
+     * @param markup type of the markup segment
+     * @return  this instance of the object for chaining purpose 
+     * @see https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_connectapi_input_markup_begin_segment.htm
+     */
+    private ChatterPostService beginMarkup(ConnectApi.MarkupType markupType) {
+        ConnectApi.MarkupEndSegmentInput beginMarkup = new ConnectApi.MarkupEndSegmentInput();
+        beginMarkup.markupType = markupType;
+        this.messageSegments.add(beginMarkup);
+        return this;
+    }
+
+    /**
+     * End Markup
+     * @param markup type of the markup segment
+     * @return  this instance of the object for chaining purpose 
+     * @see https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_connectapi_input_markup_begin_segment.htm
+     */
+    private ChatterPostService endMarkup(ConnectApi.MarkupType markupType) {
+        ConnectApi.MarkupEndSegmentInput endMarkup = new ConnectApi.MarkupEndSegmentInput();
+        endMarkup.markupType = markupType;
+        this.messageSegments.add(endMarkup);
         return this;
     }
 
