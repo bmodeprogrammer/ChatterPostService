@@ -107,3 +107,37 @@ Lead l = trigger.new[0];
     ConnectApi.FeedElement fi = ConnectApi.ChatterFeeds.postFeedElement(Network.getNetworkId(), input);
 
 ```
+
+With chainning mode that this service offers:
+
+```java
+ ConnectApi.ChatterFeeds.postFeedElement(Network.getNetworkID(), 
+        new ChatterPostService(l.Id, ConnectApi.FeedElementType.FeedItem)
+            .addText('Hey there ')
+            .addUserOrGroupMentionById(l.OwnerId)
+            .addText('. How are you?')
+            .beginOrderedList()
+            //first item
+            .beginListItem()
+            .beginItalic()
+            .beginBold()
+            .addText('test bold and italic')
+            .endBold()
+            .endItalic()
+            .endListItem()
+            //second item
+            .beginListItem()
+            .beginHyperlink(System.URL.getSalesforceBaseUrl().toExternalForm() + '/' + l.Id, l.LastName)
+            .addText('Click o the lead ' + l.LastName)
+            .endHyperlink()
+            .endListItem()
+            //third item
+            .beginListItem()
+            .addLink(System.URL.getSalesforceBaseUrl().toExternalForm() + '/' + l.Id)
+            .endListItem()
+            .endOrderedList()
+            //get the input for sending
+            .getFeedItemInput()
+    );
+
+```

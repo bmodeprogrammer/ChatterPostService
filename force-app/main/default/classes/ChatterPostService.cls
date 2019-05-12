@@ -12,6 +12,7 @@ global inherited sharing class ChatterPostService {
     global ChatterPostService(String subjectId, ConnectApi.FeedElementType elementType) {
         this.feedItemInput = new ConnectApi.FeedItemInput();
         this.feedItemInput.feedElementType = elementType;
+        this.feedItemInput.subjectId = subjectId;
         this.feedItemInput.body = new ConnectApi.MessageBodyInput();
         this.messageSegments = new List<ConnectApi.MessageSegmentInput>();
     }
@@ -277,7 +278,7 @@ global inherited sharing class ChatterPostService {
      * @see https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_connectapi_input_markup_begin_segment.htm
      */
     private ChatterPostService beginMarkup(ConnectApi.MarkupType markupType) {
-        ConnectApi.MarkupEndSegmentInput beginMarkup = new ConnectApi.MarkupEndSegmentInput();
+        ConnectApi.MarkupBeginSegmentInput beginMarkup = new ConnectApi.MarkupBeginSegmentInput();
         beginMarkup.markupType = markupType;
         this.messageSegments.add(beginMarkup);
         return this;
