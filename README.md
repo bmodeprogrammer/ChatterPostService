@@ -6,8 +6,6 @@ A new way to build with apex yours chatter posts with chaining mode, and in my o
 
 The actual way of using Salesforce ConnectApi to post feed elements with Apex is very verbose and not so easy to understand at first look. Example:
 For this result:</br>
-        ChatterPostService/img/ChatterPostResult.JPG
-      
 ![Result](https://raw.githubusercontent.com/bmodeprogrammer/ChatterPostService/master/img/ChatterPostResult.JPG) </br>
 You need this code:
 ```java
