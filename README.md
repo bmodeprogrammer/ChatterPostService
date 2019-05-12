@@ -2,6 +2,8 @@
 
 A new way to build with apex yours chatter posts with chaining mode, and in my opnion is very clean and readable. With Salesforce ConnectApi Or Chatter in Apex.
 
+Right now, has a test class that provides 89% of code coverage and manual tests results in manualTest folder on this repository.
+
 ## Why ChatterPostService
 
 The actual way of using Salesforce ConnectApi to post feed elements with Apex is very verbose and not so easy to understand at first look. Example:
