@@ -4,3 +4,4 @@ sfdx-project.json
 .sfdx
 .forceCode
 .vim*
+*.trigger*
