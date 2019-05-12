@@ -6,7 +6,7 @@ A new way to build with apex yours chatter posts with chaining mode, and in my o
 
 The actual way of using Salesforce ConnectApi to post feed elements with Apex is very verbose and not so easy to understand at first look. Example:
 For this result:</br>
-![Result](https://raw.githubusercontent.com/bmodeprogrammer/ChatterPostService/master/img/ChatterPostResult.JPG) </br>
+![Result](https://github.com/bmodeprogrammer/ChatterPostService/blob/master/img/ChatterPostResult.JPG?raw=true) </br>
 You need this code:
 ```java
 Lead l = trigger.new[0];
